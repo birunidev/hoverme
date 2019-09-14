@@ -1,0 +1,122 @@
+// Media queries
+@mixin tablet {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+
+
+body {
+  font-family: "Nunito" !important;
+  background: #f5f5f5;
+}
+
+.wrapper {
+  margin: 20px auto;
+
+  h1 {
+    font-size: 2em;
+    text-align: center;
+  }
+
+  .container {
+    margin: 50px 30px 0;
+    text-align: center;
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+    }
+
+    .obj {
+      margin-top: 50px;
+      border: 1px solid #e0e0e0;
+      overflow: hidden;
+      position: relative;
+
+
+      .bg {
+        width: 100%;
+        height: 250px;
+        background: #353535;
+
+        transition: .5s ease-out;
+        transform: translateX(-600px);
+
+      }
+
+      .content {
+        top: 0;
+        padding-bottom: 20px;
+        position: absolute;
+        text-align: center;
+        margin: 10px;
+
+
+
+        h3 {
+          font-weight: bold;
+          font-size: 1.1em;
+          color: #181818;
+          letter-spacing: 1.2px;
+          transition: .8s;
+
+        }
+
+        i,
+        h3,
+        p {
+          margin-top: 10px;
+        }
+
+        i {
+          font-size: 2em;
+          color: #fcb912;
+          margin-top: 30px;
+        }
+
+        p {
+          margin-bottom: 10px;
+          color: #535353;
+          line-height: 1.2;
+          transition: .8s;
+        }
+
+        a {
+          text-decoration: none;
+          color: #fcb912;
+          display: block;
+          margin-bottom: 30px;
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+
+        a:active,
+        a:target {
+          border: none !important;
+        }
+      }
+
+
+    }
+
+    .obj:hover {
+      .bg {
+        transform: translateX(0);
+      }
+
+      .content {
+        h3 {
+          color: white;
+        }
+
+        p {
+          color: #c7c7c7;
+        }
+      }
+    }
+  }
+}
